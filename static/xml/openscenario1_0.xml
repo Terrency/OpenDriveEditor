@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSCENARIO>
+    <FileHeader revMajor="{{FileHeader.revMajor}}"
+                revMinor="{{FileHeader.revMinor}}"
+                date="{{FileHeader.date}}"
+                description="{{FileHeader.description}}"
+                author="{{FileHeader.author}}"/>
+    <ParameterDeclarations>
+            {{#ParameterDeclarations}}
+            <ParameterDeclaration name="{{name}}" parameterType="{{type}}" value="{{value}}"/>
+            {{/ParameterDeclarations}}
+    </ParameterDeclarations>
+    <CatalogLocations>
+        {{#CatalogLocations}}
+        <{{type}}>
+            <Directory path="{{Directory}}"/>
+        </{{type}}>
+        {{/CatalogLocations}}
+    </CatalogLocations>
+    <RoadNetwork>
+        <LogicFile filepath="{{RoadNetwork.LogicFile}}"/>
+        <SceneGraphFile filepath="{{RoadNetwork.SceneGraphFile}}"/>
+    </RoadNetwork>
+    <Entities>
+        {{#Entities}}
+        <ScenarioObject name="{{name}}">
+            {{#CatalogReference}}
+            <CatalogReference catalogName="{{catalogName}}" entryName="{{entryName}}"/>
+            {{/CatalogReference}}
+        </ScenarioObject>
+        {{/Entities}}
+    </Entities>
+    {{#Storyboard}}
+    <Storyboard>
+        {{#Init}}
+        <Init>
+            <Actions>
+                {{#Actions}}
+                <Private entityRef="{{entityRef}}">
+                    {{#PrivateAction}}
+                    <PrivateAction>
+                        {{#TeleportAction}}
+                        <TeleportAction>
+                            {{#Position}}
+                            <Position>
+                                {{#LanePosition}}
+                                <LanePosition roadId="{{roadId}}" laneId="{{laneId}}" offset="{{offset}}" s="{{s}}"/>
+                                {{/LanePosition}}
+                            </Position>
+                            {{/Position}}
+                        </TeleportAction>
+                        {{/TeleportAction}}
+                        {{#LongitudinalAction}}
+                        <LongitudinalAction>
+                            <SpeedAction>
+                                <SpeedActionDynamics dynamicsShape="{{SpeedAction.SpeedActionDynamics.dynamicsShape}}" dynamicsDimension="{{SpeedAction.SpeedActionDynamics.dynamicsShape}}" />
+                                <SpeedActionTarget>
+                                    <AbsoluteTargetSpeed value="{{SpeedAction.SpeedActionTarget.AbsoluteTargetSpeed}}"/>
+                                </SpeedActionTarget>
+                            </SpeedAction>
+                        </LongitudinalAction>
+                        {{/LongitudinalAction}}
+                    </PrivateAction>
+                    {{/PrivateAction}}
+                </Private>
+                {{/Actions}}
+            </Actions>
+        </Init>
+        {{/Init}}
+        {{#Story}}
+        <Story name="{{name}}">
+            <ParameterDeclarations>
+                {{#ParameterDeclarations}}
+                <ParameterDeclaration parameterType="{{parameterType}}" name="{{name}}" value="{{value}}"/>
+                {{/ParameterDeclarations}}
+            </ParameterDeclarations>
+            {{#Act}}
+            <Act name="{{name}}">
+                {{#ManeuverGroup}}
+                <ManeuverGroup maximumExecutionCount="{{maximumExecutionCount}}" name="{{name}}">
+                    <Actors selectTriggeringEntities="false">
+                        {{#Actors}}
+                        <EntityRef entityRef="{{entityRef}}"/>
+                        {{/Actors}}
+                    </Actors>
+                    {{#Maneuver}}
+                    <Maneuver name="{{name}}">
+                        {{#Event}}
+                        <Event name="{{name}}" priority="{{priority}}">
+                            {{#Action}}
+                            <Action name="{{name}}">
+                                {{#PrivateAction}}
+                                <PrivateAction>
+                                    {{#LongitudinalAction}}
+                                    <LongitudinalAction>
+                                        {{#SpeedAction}}
+                                        <SpeedAction>
+                                            {{#SpeedActionDynamics}}
+                                            <SpeedActionDynamics dynamicsShape="{{dynamicsShape}}" value="{{value}}" dynamicsDimension="{{dynamicsDimension}}" />
+                                            {{/SpeedActionDynamics}}
+                                            {{#SpeedActionTarget}}
+                                            <SpeedActionTarget>
+                                                {{#RelativeTargetSpeed}}
+                                                <RelativeTargetSpeed entityRef="{{entityRef}}"
+                                                                     value="{{value}}"
+                                                                     speedTargetValueType="{{speedTargetValueType}}"
+                                                                     continuous="{{continuous}}"/>
+                                                {{/RelativeTargetSpeed}}
+                                            </SpeedActionTarget>
+                                            {{/SpeedActionTarget}}
+                                        </SpeedAction>
+                                        {{/SpeedAction}}
+                                    </LongitudinalAction>
+                                    {{/LongitudinalAction}}
+                                </PrivateAction>
+                                {{/PrivateAction}}
+                            </Action>
+                            {{/Action}}
+                        </Event>
+                        {{/Event}}
+                    </Maneuver>
+                    {{/Maneuver}}
+                </ManeuverGroup>
+                {{/ManeuverGroup}}
+                {{#StartTrigger}}
+                <StartTrigger>
+                    <ConditionGroup>
+                        {{#ConditionGroup}}
+                        <Condition name="{{name}}" delay="{{dalay}}">
+                            {{#ByValueCondition}}
+                            <ByValueCondition>
+                                {{#SimulationTimeCondition}}
+                                <SimulationTimeCondition value="{{value}}" rule="{{rule}}"/>
+                                {{/SimulationTimeCondition}}
+                            </ByValueCondition>
+                            {{/ByValueCondition}}
+                        </Condition>
+                        {{/ConditionGroup}}
+                    </ConditionGroup>
+                </StartTrigger>
+                {{/StartTrigger}}
+                {{#StopTrigger}}
+                <StopTrigger>
+                    <ConditionGroup>
+                        {{#ConditionGroup}}
+                        <Condition name="{{name}}" delay="{{delay}}" conditionEdge="{{conditionEdge}}">
+                            {{#ByValueCondition}}
+                            <ByValueCondition>
+                                {{#StoryboardElementStateCondition}}
+                                <StoryboardElementStateCondition storyboardElementType="{{storyboardElementType}}"
+                                                                 storyboardElementRef="{{storyboardElementRef}}"
+                                                                 state="{{state}}"/>
+                                {{/StoryboardElementStateCondition}}
+                            </ByValueCondition>
+                            {{/ByValueCondition}}
+                        </Condition>
+                        {{/ConditionGroup}}
+                    </ConditionGroup>
+                </StopTrigger>
+                {{/StopTrigger}}
+            </Act>
+            {{/Act}}
+        </Story>
+        {{/Story}}
+    </Storyboard>
+    {{/Storyboard}}
+</OpenSCENARIO>

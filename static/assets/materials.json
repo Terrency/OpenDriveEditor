@@ -1,0 +1,91 @@
+{
+  "EmergencyLane":{
+    "fileName": "EmergencyLane.jpg",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "driving": {
+    "fileName": "roadDriving.png",
+    "wrapS":"MirroredRepeatWrapping",
+    "wrapT":"MirroredRepeatWrapping"
+  },
+  "brtdriving": {
+    "fileName": "brtroad.jpg",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "sidewalk": {
+    "fileName": "roadWalk.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "shoulder": {
+    "fileName": "roadWalk.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "yellow": {
+    "fileName": "yellow.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "dragPoint": {
+    "fileName": "disc.png"
+  },
+  "lawn": {
+    "fileName": "lawn.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "Arrowline":{
+    "fileName": "Arrowline.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"MirroredRepeatWrapping",
+    "repeat":[0.3,0.1]
+  },
+  "crossWalk":{
+    "fileName": "crossWalk.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+    
+  },
+  "laneMarkNorm": {
+    "fileName":"LaneMarking1_Norm.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "laneMarkSpec": {
+    "fileName":"LaneMarking1_Spec.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "markPS": {
+    "fileName":"markPS.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "SETrigger": {
+    "fileName":"SETrigger.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "Pedestrian": {
+    "fileName":"Pedestrian.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping"
+  },
+  "Grasslight": {
+    "fileName":"grasslight-big.jpg",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping",
+    "repeat":[25,25],
+    "anisotropy": 16,
+    "encoding": "sRGBEncoding"
+  },
+  "Tunnel": {
+    "fileName":"tunnel.png",
+    "wrapS":"RepeatWrapping",
+    "wrapT":"RepeatWrapping",
+    "repeat":[0.3,0.3]
+  }
+}
